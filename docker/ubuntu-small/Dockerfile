@@ -146,7 +146,7 @@ RUN . /buildscripts/bh-set-envvars.sh \
 ARG GDAL_VERSION=master
 ARG GDAL_RELEASE_DATE
 ARG GDAL_BUILD_IS_RELEASE
-ARG GDAL_REPOSITORY=OSGeo/gdal
+ARG GDAL_REPOSITORY=jesseanttila-cai/gdal
 
 RUN . /buildscripts/bh-set-envvars.sh \
     && if test "${GDAL_VERSION}" = "master"; then \
