@@ -876,6 +876,7 @@ bool VSIS3HandleHelper::GetConfigurationFromEC2(
     std::string osECSToken;
     if (!osECSTokenFile.empty())
     {
+        CPLDebug("AWS", "Reading ECS Token from file");
         if (!ReadAWSWebIdentityTokenFile(osECSTokenFile, osECSToken))
         {
             CPLDebug("AWS", "%s is empty", osECSTokenFile.c_str());
@@ -883,6 +884,7 @@ bool VSIS3HandleHelper::GetConfigurationFromEC2(
     }
     else if (!osECSTokenValue.empty())
     {
+        CPLDebug("AWS", "Reading ECS Token from env var");
         osECSToken = osECSTokenValue;
     }
 
@@ -1026,6 +1028,7 @@ bool VSIS3HandleHelper::GetConfigurationFromEC2(
     }
     else if (!osECSToken.empty())
     {
+        CPLDebug("AWS", "Adding ECS Token to request headers");
         aosOptions.SetNameValue(
             "HEADERS", ("Authorization: " + osECSToken).c_str());
     }
